@@ -1,12 +1,16 @@
 import java.time.LocalDate;
+import java.time.Year;
+
 public class Main {
-    public static void main(String[] args){
-        LocalDate today= LocalDate.now();
-        LocalDate endOfMonth = today.withDayOfMonth(today.lengthOfMonth());
-        LocalDate endOfYear=today.withDayOfYear(today.lengthOfYear());
-        int daysLefEndOfMonth = endOfMonth.lengthOfMonth()-today.getDayOfMonth();
-        int dayLeftEndOfYear = (endOfYear.lengthOfYear()-today.getDayOfYear());
-        System.out.println("Days left till the end of the month= "+daysLefEndOfMonth);
-        System.out.println("Days left till the end of the year= "+dayLeftEndOfYear);
+    public static void main(String[] args) {
+        LocalDate today = LocalDate.now();
+        int daysInCurrentMonth = today.lengthOfMonth();
+        int daysLefEndOfMonth = daysInCurrentMonth - today.getDayOfMonth();
+        System.out.println("Days left till the end of the month= " + daysLefEndOfMonth);
+
+        Year currentYear = Year.now();
+        int daysInCurrentYear = currentYear.length();
+        int dayLeftEndOfYear = daysInCurrentYear - today.getDayOfYear();
+        System.out.println("Days left till the end of the year= " + dayLeftEndOfYear);
     }
 }
